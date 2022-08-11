@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router,Route} from 'react-router-dom'
 import './App.css';
+import Barra from './componentes/Barra';
+import RegistrarPersona from './componentes/RegistrarPersona';
+import VerPersonas from './componentes/VerPersonas'
+import Index from './componentes/Index'
+import ErrorRadios from './componentes/SeleccionaOficina';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+
+    <Barra/>
+
+   <Route path='/' exact component={Index}/>
+   <Route path='/registrarPersona' exact component={RegistrarPersona}/>
+   <Route path='/verPersonas' exact component={VerPersonas}/>
+   <Route path='/seleccionar-oficina' exact component={ErrorRadios}/>
+
+
+    </Router>
+
+
+   
   );
 }
 
